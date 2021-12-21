@@ -1,6 +1,9 @@
-name: Build and package .db for dcmtk
+name: Build .deb package for dcmtk
 
-on: push
+on: 
+  push:
+  schedule:
+    - cron: 0 0 * * *
 
 jobs:
   build:
