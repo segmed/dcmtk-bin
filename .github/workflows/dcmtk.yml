@@ -31,7 +31,7 @@ jobs:
       - run:  |
           mkdir ${{ github.workspace }}/dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-build
           cd ${{ github.workspace }}/dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-build
-          cmake -DDCMTK_WITH_TIFF=OFF -DDCMTK_WITH_PNG=OFF -DDCMTK_WITH_OPENSSL=OFF -DDCMTK_WITH_XML=OFF -DDCMTK_WITH_ZLIB=OFF -DDCMTK_WITH_ICONV=OFF -DDCMTK_WITH_WRAP=OFF -DDCMTK_LINK_STATIC=ON -DCMAKE_INSTALL_PREFIX=/usr ${{ github.workspace }}
+          cmake -DDCMTK_WITH_TIFF=OFF -DDCMTK_WITH_PNG=OFF -DDCMTK_WITH_OPENSSL=OFF -DDCMTK_WITH_XML=OFF -DDCMTK_WITH_ZLIB=OFF -DDCMTK_WITH_ICONV=OFF -DDCMTK_WITH_WRAP=OFF -DDCMTK_LINK_STATIC=ON -DCMAKE_INSTALL_PREFIX=/usr -DDCMTK_DEFAULT_DICT=builtin ${{ github.workspace }}
           make -j"$(($(nproc) + 1))"
           make DESTDIR=${{ github.workspace }}/dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-install install
       - uses: bpicode/github-action-fpm@v0.9.2
