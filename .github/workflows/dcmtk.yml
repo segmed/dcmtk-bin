@@ -66,7 +66,7 @@ jobs:
           allowUpdates: true
           omitBody: true
           omitName: true
-          artifacts: dcmtk-bin-${{ steps.gitversion_no_prefix.outputs.version }}-x86_64.deb
+          artifacts: dcmtk-bin-${{ steps.gitversion_no_prefix.outputs.version }}-x86_64.deb,dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-install/usr/bin/*
           tag: ${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
   
