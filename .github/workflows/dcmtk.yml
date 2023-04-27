@@ -25,7 +25,9 @@ jobs:
           version_no_prefix=${version##DCMTK-}
           echo "::set-output name=version::$version_no_prefix"
       - run: |
-          sudo apt-get update && apt-get install -y build-essential cmake libpng-dev
+          sudo apt-get update
+      - run: |
+          sudo apt-get install -y build-essential cmake libpng-dev
       - run:  |
           mkdir ${{ github.workspace }}/dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-build
           cd ${{ github.workspace }}/dcmtk-${{ steps.gitversion_no_prefix.outputs.version }}-build
