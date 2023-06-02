@@ -3,9 +3,13 @@ name: Build .deb package for dcmtk
 on: 
   push:
 
+
 jobs:
   build:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+      deployments: write
     steps:
       - uses: actions/checkout@v2
         with:
